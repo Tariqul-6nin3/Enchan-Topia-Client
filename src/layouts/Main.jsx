@@ -8,6 +8,7 @@ const Main = () => {
     <div>
       <Header />
       <Outlet />
+      hi
       <Footer />
     </div>
   );
