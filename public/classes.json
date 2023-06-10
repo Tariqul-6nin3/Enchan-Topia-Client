@@ -1,0 +1,270 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Introduction to Spells",
+    "available_seats": 20,
+    "price": 50,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Dumbledore",
+      "email": "dumbledore@example.com",
+      "classes_taken": 3,
+      "class_names_taken": [
+        "Defense Against the Dark Arts",
+        "Transfiguration",
+        "Divination"
+      ]
+    },
+    "number_of_students": 18
+  },
+  {
+    "id": 2,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Advanced Potion Making",
+    "available_seats": 15,
+    "price": 75,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Snape",
+      "email": "snape@example.com",
+      "classes_taken": 5,
+      "class_names_taken": [
+        "Potions",
+        "Dark Arts",
+        "Occulmency",
+        "Advanced Potion Making",
+        "Defense Against the Dark Arts"
+      ]
+    },
+    "number_of_students": 12
+  },
+  {
+    "id": 3,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Magical Creatures 101",
+    "available_seats": 10,
+    "price": 60,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Hagrid",
+      "email": "hagrid@example.com",
+      "classes_taken": 2,
+      "class_names_taken": ["Care of Magical Creatures", "Herbology"]
+    },
+    "number_of_students": 8
+  },
+  {
+    "id": 4,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Charms and Enchantments",
+    "available_seats": 18,
+    "price": 55,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Flitwick",
+      "email": "flitwick@example.com",
+      "classes_taken": 4,
+      "class_names_taken": [
+        "Charms",
+        "Advanced Charms",
+        "Enchantments",
+        "Spellcasting"
+      ]
+    },
+    "number_of_students": 15
+  },
+  {
+    "id": 5,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Divination: Unveiling the Future",
+    "available_seats": 12,
+    "price": 65,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Trelawney",
+      "email": "trelawney@example.com",
+      "classes_taken": 1,
+      "class_names_taken": ["Divination"]
+    },
+    "number_of_students": 10
+  },
+  {
+    "id": 6,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Magical History and Legends",
+    "available_seats": 25,
+    "price": 55,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Binns",
+      "email": "binns@example.com",
+      "classes_taken": 0,
+      "class_names_taken": []
+    },
+    "number_of_students": 20
+  },
+  {
+    "id": 7,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Alchemy Fundamentals",
+    "available_seats": 12,
+    "price": 80,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Slughorn",
+      "email": "slughorn@example.com",
+      "classes_taken": 2,
+      "class_names_taken": ["Potions", "Advanced Potion Making"]
+    },
+    "number_of_students": 8
+  },
+  {
+    "id": 8,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Enchanting Artifacts",
+    "available_seats": 18,
+    "price": 65,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Vector",
+      "email": "vector@example.com",
+      "classes_taken": 1,
+      "class_names_taken": ["Arithmancy"]
+    },
+    "number_of_students": 14
+  },
+  {
+    "id": 9,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Elemental Magic Mastery",
+    "available_seats": 10,
+    "price": 90,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Sprout",
+      "email": "sprout@example.com",
+      "classes_taken": 3,
+      "class_names_taken": [
+        "Herbology",
+        "Defense Against the Dark Arts",
+        "Transfiguration"
+      ]
+    },
+    "number_of_students": 6
+  },
+  {
+    "id": 10,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Magical Music and Melodies",
+    "available_seats": 15,
+    "price": 70,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Flitwick",
+      "email": "flitwick@example.com",
+      "classes_taken": 4,
+      "class_names_taken": [
+        "Charms",
+        "Advanced Charms",
+        "Enchantments",
+        "Spellcasting"
+      ]
+    },
+    "number_of_students": 12
+  },
+  {
+    "id": 11,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Ancient Runes",
+    "available_seats": 15,
+    "price": 60,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Babbling",
+      "email": "babbling@example.com",
+      "classes_taken": 2,
+      "class_names_taken": ["Divination", "Ancient Runes"]
+    },
+    "number_of_students": 10
+  },
+  {
+    "id": 12,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Magical Astronomy",
+    "available_seats": 20,
+    "price": 70,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Sinistra",
+      "email": "sinistra@example.com",
+      "classes_taken": 1,
+      "class_names_taken": ["Astronomy"]
+    },
+    "number_of_students": 15
+  },
+  {
+    "id": 13,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Defensive Spells and Counter-Curses",
+    "available_seats": 12,
+    "price": 75,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Lupin",
+      "email": "lupin@example.com",
+      "classes_taken": 3,
+      "class_names_taken": [
+        "Defense Against the Dark Arts",
+        "Magical Creatures",
+        "Charms"
+      ]
+    },
+    "number_of_students": 8
+  },
+  {
+    "id": 14,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Wandlore",
+    "available_seats": 10,
+    "price": 80,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Ollivander",
+      "email": "ollivander@example.com",
+      "classes_taken": 0,
+      "class_names_taken": []
+    },
+    "number_of_students": 5
+  },
+  {
+    "id": 15,
+    "image": "https://i.postimg.cc/jj0kR28F/alexander-grey-u-XS73-PNg-YTc-unsplash.jpg",
+    "name": "Potions: Advanced Techniques",
+    "available_seats": 15,
+    "price": 85,
+    "status": "pending",
+    "instructor": {
+      "image": "https://i.postimg.cc/YSFphJrn/khashayar-kouchpeydeh-5y-Vm-Z-Oqh-F4-unsplash.jpg",
+      "name": "Professor Slughorn",
+      "email": "slughorn@example.com",
+      "classes_taken": 2,
+      "class_names_taken": ["Potions", "Advanced Potion Making"]
+    },
+    "number_of_students": 12
+  }
+]
