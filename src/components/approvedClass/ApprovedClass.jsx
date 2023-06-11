@@ -4,7 +4,7 @@ import ApprovedClsData from "./ApprovedClsData";
 
 const ApprovedClass = () => {
   const [approvedClass, setApprovedClass] = useState([]);
-  console.log(approvedClass);
+  //   console.log(approvedClass);
   useEffect(() => {
     fetch("http://localhost:5000/approvedclass")
       .then(res => res.json())
@@ -18,7 +18,7 @@ const ApprovedClass = () => {
         <h2 className="text-3xl font-bold text-center">
           Find Your Suitable Class
         </h2>
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 py-10">
           {approvedClass?.map(classes => (
             <ApprovedClsData
               key={classes._id}
