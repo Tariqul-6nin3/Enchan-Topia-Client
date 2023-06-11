@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { myContext } from "../../providers/Context";
 import Swal from "sweetalert2";
 
@@ -6,7 +6,7 @@ const ApprovedClsData = ({ classes }) => {
   const { _id, classImage, className, instructorName, availableSeats, price } =
     classes;
   const { user } = useContext(myContext);
-  console.log(user);
+  // console.log(user);
   //   const isAdminOrInstructor =
   //     user.role === "admin" || user.role === "instructor";
 
@@ -34,14 +34,12 @@ const ApprovedClsData = ({ classes }) => {
           icon: "success",
           confirmButtonText: "OK",
         });
-        // Request succeeded, handle the success case
+
         console.log("Booking successful!");
       } else {
-        // Request failed, handle the error case
         console.log("Booking failed!");
       }
     } catch (error) {
-      // Handle any network or server errors
       console.error("Error:", error);
     }
   };
