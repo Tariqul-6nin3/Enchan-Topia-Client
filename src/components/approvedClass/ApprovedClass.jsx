@@ -4,7 +4,7 @@ import ApprovedClsData from "./ApprovedClsData";
 
 const ApprovedClass = () => {
   const [approvedClass, setApprovedClass] = useState([]);
-  //   console.log(approvedClass);
+
   useEffect(() => {
     fetch("http://localhost:5000/approvedclass")
       .then(res => res.json())

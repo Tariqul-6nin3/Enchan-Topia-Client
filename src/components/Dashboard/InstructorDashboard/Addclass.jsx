@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,8 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 // import { myContext } from "../providers/Context";
 
 import Lottie from "react-lottie";
+import { myContext } from "../../../providers/Context";
 
 const Addclass = () => {
+  const { user } = useContext(myContext);
+
   const handleAddClass = event => {
     event.preventDefault();
     const form = event.target;
@@ -32,6 +35,7 @@ const Addclass = () => {
       price,
       status: "pending",
       feedback: "",
+      addedby: user.email,
     };
     console.log(newClass);
 

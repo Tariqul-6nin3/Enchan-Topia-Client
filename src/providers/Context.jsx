@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import app from "../../firebase.config";
+import { getRole } from "../api/SaveUser";
 
 const auth = getAuth(app);
 
@@ -15,9 +16,16 @@ export const myContext = createContext();
 const Context = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  useEffect(() => {
+    if (user) {
+      getRole(user.email).then(data => setRole(data));
+    }
+  }, [user]);
 
   const loggedInUser = (email, password) => {
     setLoading(true);
@@ -45,6 +53,8 @@ const Context = ({ children }) => {
     user,
     loading,
     setLoading,
+    role,
+    setRole,
   };
   return <myContext.Provider value={authInfo}>{children}</myContext.Provider>;
 };

@@ -15,6 +15,7 @@ import AllUser from "./components/Dashboard/AdminDashboard/AllUser";
 import AllClass from "./components/Dashboard/AdminDashboard/AllClass";
 import Instructor from "./components/instructor/Instructor";
 import ApprovedClass from "./components/approvedClass/ApprovedClass";
+import Myclass from "./components/Dashboard/InstructorDashboard/Myclass";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/dash/allclass",
         element: <AllClass />,
+      },
+      {
+        path: "/dash/myclass",
+        element: <Myclass />,
       },
     ],
   },

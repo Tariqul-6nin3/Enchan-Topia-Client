@@ -1,16 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { myContext } from "../../providers/Context";
 import Swal from "sweetalert2";
 
 const ApprovedClsData = ({ classes }) => {
   const { _id, classImage, className, instructorName, availableSeats, price } =
     classes;
-  const { user } = useContext(myContext);
-  // console.log(user);
-  //   const isAdminOrInstructor =
-  //     user.role === "admin" || user.role === "instructor";
+  const { role, user } = useContext(myContext);
+  console.log(role);
 
-  //   const isButtonDisabled = availableSeats === 0 || isAdminOrInstructor;
+  const isAdminOrInstructor = role === "admin" || role === "instructor";
+
+  const isButtonDisabled = availableSeats === 0 || isAdminOrInstructor;
 
   const handleBookNow = async () => {
     const payload = {
@@ -57,9 +57,11 @@ const ApprovedClsData = ({ classes }) => {
             Total Vacancy: {availableSeats}
           </p>
           <p className="text-xl font-semibold">Amount: $ {price}</p>{" "}
-          {/* Fixed a typo, use `price` instead of `availableSeats` */}
           <div className="card-actions justify-end">
-            <button className="btn btn-sm btn-outline" onClick={handleBookNow}>
+            <button
+              disabled={isButtonDisabled}
+              className="btn btn-sm btn-outline"
+              onClick={handleBookNow}>
               book now
             </button>
           </div>

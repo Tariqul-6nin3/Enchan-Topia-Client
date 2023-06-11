@@ -28,7 +28,6 @@ const AdminDashboard = () => {
       {/* Main Content */}
       <div className="flex-grow p-6 overflow-scroll">
         {/* Content */}
-        <h1 className="text-3xl font-bold mb-4">Welcome to Admin Dashboard!</h1>
         <Outlet />
       </div>
     </div>

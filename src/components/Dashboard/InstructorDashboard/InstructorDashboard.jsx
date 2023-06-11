@@ -18,20 +18,9 @@ const InstructorDashboard = () => {
             <Link to="/dash/addclass">Add Class</Link>
           </li>
           <li className="px-4 py-2 hover:bg-gray-800">
-            <a href="#" className="block">
-              My Classes
-            </a>
+            <Link to="/dash/myclass">My Classes</Link>
           </li>
-          <li className="px-4 py-2 hover:bg-gray-800">
-            <a href="#" className="block">
-              Total Enroll Students
-            </a>
-          </li>
-          <li className="px-4 py-2 hover:bg-gray-800">
-            <a href="#" className="block">
-              Feedbacks
-            </a>
-          </li>
+
           {/* Add more sidebar items */}
         </ul>
       </div>
