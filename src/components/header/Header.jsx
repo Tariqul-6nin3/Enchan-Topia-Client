@@ -50,7 +50,7 @@ const Header = () => {
                 Instructor
               </li>
             </Link>
-            <Link>
+            <Link to="/approvedclass">
               {" "}
               <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
                 Classes
