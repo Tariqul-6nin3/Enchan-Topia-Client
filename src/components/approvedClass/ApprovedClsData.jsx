@@ -11,7 +11,7 @@ const ApprovedClsData = ({ classes }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{className}</h2>
-          <p>Click the button to watch on Jetflix app.</p>
+          <p>something</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Watch</button>
           </div>
