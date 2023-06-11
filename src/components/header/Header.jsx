@@ -44,7 +44,7 @@ const Header = () => {
                 Home
               </li>
             </Link>
-            <Link>
+            <Link to="/instructor">
               {" "}
               <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
                 Instructor
@@ -107,7 +107,7 @@ const Header = () => {
                 Home
               </li>
             </Link>
-            <Link>
+            <Link to="instructor">
               <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
                 Instructor
               </li>

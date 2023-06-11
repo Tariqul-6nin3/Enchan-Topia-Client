@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const AdminDashboard = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex  h-screen">
       {/* Sidebar */}
       <div className="bg-gray-900 text-white w-64 flex-none">
         {/* Sidebar content */}
@@ -26,7 +26,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-grow p-6">
+      <div className="flex-grow p-6 overflow-scroll">
         {/* Content */}
         <h1 className="text-3xl font-bold mb-4">Welcome to Admin Dashboard!</h1>
         <Outlet />

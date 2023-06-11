@@ -13,6 +13,7 @@ import DashboardContainer from "./components/DashboardContainer/DashboardContain
 import Addclass from "./components/Dashboard/InstructorDashboard/Addclass";
 import AllUser from "./components/Dashboard/AdminDashboard/AllUser";
 import AllClass from "./components/Dashboard/AdminDashboard/AllClass";
+import Instructor from "./components/instructor/Instructor";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp />,
+      },
+      {
+        path: "instructor",
+        element: <Instructor />,
       },
     ],
   },

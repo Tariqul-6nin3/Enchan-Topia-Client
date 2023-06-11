@@ -31,6 +31,7 @@ const Addclass = () => {
       numOfStudents,
       price,
       status: "pending",
+      feedback: "",
     };
     console.log(newClass);
 
