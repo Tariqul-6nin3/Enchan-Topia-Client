@@ -16,6 +16,8 @@ import AllClass from "./components/Dashboard/AdminDashboard/AllClass";
 import Instructor from "./components/instructor/Instructor";
 import ApprovedClass from "./components/approvedClass/ApprovedClass";
 import Myclass from "./components/Dashboard/InstructorDashboard/Myclass";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Myselected from "./components/Dashboard/StudentDashboard/Myselected";
 
 const router = createBrowserRouter([
   {
@@ -65,14 +67,20 @@ const router = createBrowserRouter([
         path: "/dash/myclass",
         element: <Myclass />,
       },
+      {
+        path: "/dash/myselected",
+        element: <Myselected />,
+      },
     ],
   },
 ]);
-
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Context>
-      <RouterProvider router={router}></RouterProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </Context>
   </React.StrictMode>
 );

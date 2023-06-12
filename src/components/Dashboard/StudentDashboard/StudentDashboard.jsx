@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { myContext } from "../../../providers/Context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const StudentDashboard = () => {
   const { logOutUser } = useContext(myContext);
@@ -25,9 +25,7 @@ const StudentDashboard = () => {
               <Link to="/">Home</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-800">
-              <a href="#" className="block">
-                My selected class
-              </a>
+              <Link to="/dash/myselected"> My selected class</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-800">
               <a href="#" className="block">
@@ -47,6 +45,7 @@ const StudentDashboard = () => {
         {/* Content */}
         <h1 className="text-3xl font-bold mb-4">Welcome to the Dashboard!</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <Outlet />
       </div>
     </div>
   );
