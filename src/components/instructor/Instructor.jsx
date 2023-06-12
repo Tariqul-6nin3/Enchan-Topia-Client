@@ -21,7 +21,6 @@ const Instructor = () => {
           {/* head */}
           <thead>
             <tr className="">
-              <th>S/L NO</th>
               <th>Image</th>
               <th>Name</th>
               <th>Email</th>
@@ -29,7 +28,7 @@ const Instructor = () => {
               <th>Details</th>
             </tr>
           </thead>
-          <tbody className="space-y-3">
+          <tbody className="space-y-3 mt-6">
             {allinstructor?.map((instructors, index) => (
               <InstrData
                 key={instructors.email}

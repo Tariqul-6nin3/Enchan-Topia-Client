@@ -11,13 +11,13 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CheckoutForm = ({ itemPrice }) => {
-  const { AxiosSecure } = useAxiosSecure();
   const { user } = useContext(myContext);
   const stripe = useStripe();
   const elements = useElements();
   const [carderror, setCarderror] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
+  const [AxiosSecure] = useAxiosSecure();
   useEffect(() => {
     if (itemPrice > 0) {
       AxiosSecure.post("/create-payment-intent", {

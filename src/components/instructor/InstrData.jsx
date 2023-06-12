@@ -5,10 +5,7 @@ const InstrData = ({ instructors, index }) => {
   const { instructorName, instructorImage, instructorEmail, numOfStudents } =
     instructors;
   return (
-    <tr className="hover">
-      <td>
-        <p>{index + 1}</p>
-      </td>
+    <tr className="hover space-y-6">
       <td>
         <div className="avatar">
           <div className="mask mask-squircle w-12 h-12">
@@ -30,7 +27,9 @@ const InstrData = ({ instructors, index }) => {
       </td>
 
       <td>
-        <button className="btn btn-sm btn-neutral">see classes</button>
+        <button className="btn btn-sm text-white bg-[#1e90ff] ">
+          See Class
+        </button>
       </td>
     </tr>
   );

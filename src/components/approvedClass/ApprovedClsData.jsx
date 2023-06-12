@@ -60,7 +60,7 @@ const ApprovedClsData = ({ classes }) => {
           <div className="card-actions justify-end">
             <button
               disabled={isButtonDisabled}
-              className="btn btn-sm btn-outline"
+              className="btn btn-sm text-white bg-[#1e90ff]"
               onClick={handleBookNow}>
               book now
             </button>
