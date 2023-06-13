@@ -22,7 +22,7 @@ export default function App() {
         <SwiperSlide>
           <img src="https://i.postimg.cc/9Q3Bv5nq/1775602.jpg" alt="" />
           <div className="overlay px-6 py-3 space-y-4">
-            <h2 className="text-6xl font-semibold ">Magic Learning Website</h2>
+            <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-semibold">
               Learn the secrets of magic and become a master magician. Learn the
               secrets of magic and become a master{" "}
@@ -39,7 +39,7 @@ export default function App() {
             alt=""
           />
           <div className="overlay px-6 py-3 space-y-4">
-            <h2 className="text-6xl font-semibold ">Magic Learning Website</h2>
+            <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-semibold">
               Master the art of illusion and create mesmerizing performances.
               Master the art of illusion and create mesmerizing performances.
@@ -56,7 +56,7 @@ export default function App() {
             alt=""
           />
           <div className="overlay px-6 py-3 space-y-4">
-            <h2 className="text-6xl font-semibold ">Magic Learning Website</h2>
+            <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-semibold">
               Unlock the secrets of magic and entertain audiences with your
               skills. Unlock the secrets of magic and entertain audiences with
@@ -74,7 +74,7 @@ export default function App() {
             alt=""
           />
           <div className="overlay px-6 py-3 space-y-4">
-            <h2 className="text-6xl font-semibold ">Magic Learning Website</h2>
+            <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-semibold">
               Discover the world of magic and amaze everyone with your tricks.
               Discover the world of magic and amaze everyone with your{" "}
@@ -91,7 +91,7 @@ export default function App() {
             alt=""
           />
           <div className="overlay px-6 py-3 space-y-4">
-            <h2 className="text-6xl font-semibold ">Magic Learning Website</h2>
+            <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-semibold">
               Learn the art of magic and create unforgettable experiences. Learn
               the art of magic and create unforgettable experiences.
@@ -105,7 +105,7 @@ export default function App() {
         <SwiperSlide>
           <img src="https://i.postimg.cc/WpqgvBm4/1775602.jpg" alt="" />
           <div className="overlay px-6 py-3 space-y-4">
-            <h2 className="text-6xl font-semibold ">Magic Learning Website</h2>
+            <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-large">
               Become a magician and inspire wonder in the hearts of people.
               Become a magician and inspire wonder in the hearts of{" "}

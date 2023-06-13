@@ -17,7 +17,7 @@ const StudentDashboard = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className=" bg-[#1e90ff]  text-white w-72 flex-none">
+      <div className=" bg-[#1e90ff] pb-36 fixed  text-white w-72 flex-none">
         {/* Sidebar content */}
 
         <div className=" ml-5 mt-6">
@@ -47,6 +47,9 @@ const StudentDashboard = () => {
                 <a href="#" className="block">
                   My enroll class
                 </a>
+              </li>
+              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+                <Link to="/dash/payment">Payment History</Link>
               </li>
 
               {/* Add more sidebar items */}
@@ -80,7 +83,7 @@ const StudentDashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-grow p-6">
+      <div className="flex-grow p-6 ps-80">
         {/* Content */}
         <h1 className="text-3xl font-bold mb-4">Welcome to the Dashboard!</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

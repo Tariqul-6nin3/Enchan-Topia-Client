@@ -33,12 +33,40 @@ const Myselected = () => {
       <h1 className="text-3xl font-bold text-center text-slate-800">
         All of my booked class
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         {selectedClass?.map(Sclass => (
-          <SClassData key={Sclass._id} selectedClass={Sclass}></SClassData>
+          <SClassData
+            key={Sclass._id}
+            selectedClass={Sclass}
+            refetch={refetch}></SClassData>
         ))}
       </div>
     </div>
+
+    // <Container>
+    //   <div className="overflow-x-auto px-6">
+    //     <table className="table ">
+    //       {/* head */}
+    //       <thead>
+    //         <tr className="">
+    //           <th>Image</th>
+    //           <th>Name</th>
+    //           <th>Email</th>
+    //           <th>Num of Student</th>
+    //           <th>Details</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody className="space-y-3 mt-6">
+    //         {selectedClass?.map((, index) => (
+    //           <InstrData
+    //             key={instructors.email}
+    //             index={index}
+    //             instructors={instructors}></InstrData>
+    //         ))}
+    //       </tbody>
+    //     </table>
+    //   </div>
+    // </Container>
   );
 };
 

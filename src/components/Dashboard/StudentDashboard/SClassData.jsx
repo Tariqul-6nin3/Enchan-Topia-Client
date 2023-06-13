@@ -8,7 +8,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { myContext } from "../../../providers/Context";
 import { ImCross } from "react-icons/im";
 
-const SClassData = ({ selectedClass }) => {
+const SClassData = ({ selectedClass, refetch }) => {
   const { user } = useContext(myContext);
   console.log(user);
 
@@ -28,6 +28,7 @@ const SClassData = ({ selectedClass }) => {
     price,
     status,
   } = selectedClass;
+  console.log(_id);
 
   const modifiedData = {
     previousId: _id,
@@ -42,31 +43,33 @@ const SClassData = ({ selectedClass }) => {
     price,
     status,
   };
-  console.log(modifiedData);
+  // console.log(modifiedData);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleDelete = id => {
-    fetch(`http://localhost:5000/selected/${id}`, { method: "DELETE" })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-          }).then(result => {
-            if (result.isConfirmed) {
+  const handleDelete = email => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(result => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/selected/${email}`, { method: "DELETE" })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              refetch();
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
-        }
-      });
+      } else {
+      }
+    });
   };
 
   const handlePay = () => {
@@ -89,7 +92,7 @@ const SClassData = ({ selectedClass }) => {
           <div className="card-actions justify-end">
             <button
               className="btn btn-accent"
-              onClick={() => handleDelete(_id)}>
+              onClick={() => handleDelete(instructorEmail)}>
               Delete
             </button>
             <button className="btn btn-primary" onClick={handlePay}>

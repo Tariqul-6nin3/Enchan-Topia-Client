@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { myContext } from "../../providers/Context";
 import { useForm } from "react-hook-form";
 import { saveUser } from "../../api/saveUser";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const defaultOptions = {
@@ -30,16 +31,18 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = data => {
-    console.log(data);
+    console.log("Yes i got it", data);
     if (data.password !== data.confirm) {
       return setError("Your password doesn't match. Please check again");
     }
     createUser(data.email, data.password)
       .then(result => {
         const createdUser = result.user;
+
         // save user to userCollection
         saveUser(createdUser, data.photo, data.name) // Pass photoUrl and displayName
           .then(() => {
+            handleDisplayName(data, data.name, data.photo);
             console.log(createdUser);
             navigate("/login");
           })
@@ -50,6 +53,17 @@ const SignUp = () => {
       .catch(error => {
         console.error(error);
       });
+  };
+
+  const handleDisplayName = (user, name, photo) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then(() => {
+        console.log("Name and photo updated");
+      })
+      .catch(error => setError(error.message));
   };
   return (
     <>

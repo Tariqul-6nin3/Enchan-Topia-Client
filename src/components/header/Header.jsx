@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar text-white  bg-[#1e90ff]  py-2 justify-between px-8  container mx-auto">
+    <div className="navbar  text-white  bg-[#1e90ff]  py-2 justify-between px-8  container mx-auto">
       <div className="flex-1 gap-2">
         <img
           className="w-10 h-10 animate-bounce animate-pulse"
