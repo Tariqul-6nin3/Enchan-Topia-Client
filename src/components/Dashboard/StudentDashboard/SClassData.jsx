@@ -84,7 +84,7 @@ const SClassData = ({ selectedClass }) => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}>
         <Elements stripe={stripePromise}>
-          <CheckoutForm itemPrice={price} />
+          <CheckoutForm selectedClass={selectedClass} />
         </Elements>
         <button className="btn btn-accent" onClick={closeModal}>
           Close

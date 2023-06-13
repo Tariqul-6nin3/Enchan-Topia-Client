@@ -44,11 +44,15 @@ export const getRole = async email => {
 //   }).then(res => res.json());
 // };
 
-// // Get role
-// export const getRole = async email => {
-//   const response = await fetch(
-//     `${import.meta.env.VITE_API_URL}/users/${email}`
-//   );
-//   const user = await response.json();
-//   return user?.role;
-// };
+// update room status
+export const updateStatus = async (id, status) => {
+  const response = await fetch(`http://localhost:5000/class/status/${id}`, {
+    method: "PATCH",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ status }),
+  });
+  const data = await response.json();
+  return data;
+};

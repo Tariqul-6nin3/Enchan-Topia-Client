@@ -6,11 +6,16 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import "../checkout/Checkout.css";
+import "react-toastify/dist/ReactToastify.css";
 import { myContext } from "../../providers/Context";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { updateStatus } from "../../api/SaveUser";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigation } from "react-router-dom";
 // import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-const CheckoutForm = ({ itemPrice }) => {
+const CheckoutForm = ({ selectedClass }) => {
+  const navigate = useNavigation();
   const { user } = useContext(myContext);
   const stripe = useStripe();
   const elements = useElements();
@@ -19,15 +24,14 @@ const CheckoutForm = ({ itemPrice }) => {
 
   const [AxiosSecure] = useAxiosSecure();
   useEffect(() => {
-    if (itemPrice > 0) {
+    if (selectedClass.price > 0) {
       AxiosSecure.post("/create-payment-intent", {
-        price: itemPrice,
+        price: selectedClass.price,
       }).then(res => {
-        console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
     }
-  }, [itemPrice, AxiosSecure]);
+  }, [selectedClass, AxiosSecure]);
 
   const handleSubmit = async event => {
     // Block native form submission.
@@ -61,19 +65,46 @@ const CheckoutForm = ({ itemPrice }) => {
       console.log("[PaymentMethod]", paymentMethod);
     }
     // confirm payment
-    const { paymentIntent, error: confirmError } = await stripe
-      .confirmCardPayment(clientSecret, {
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
           billing_details: {
-            name: user?.displayName || "unknown",
-            email: user?.email || "annonymous",
+            email: user?.email || "unknown",
+            name: user?.displayName || "anonymous",
           },
         },
-      })
-      .then(function (result) {
-        // Handle result.error or result.paymentIntent
       });
+
+    if (confirmError) {
+      console.log(confirmError);
+      setCarderror(confirmError.message);
+    }
+
+    console.log("payment intent", paymentIntent);
+
+    if (paymentIntent.status === "succeeded") {
+      // save payment information to the server
+      const paymentInfo = {
+        ...selectedClass,
+        transactionId: paymentIntent.id,
+        date: new Date(),
+      };
+      AxiosSecure.post("/bookings", paymentInfo).then(res => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          updateStatus(selectedClass._id, true)
+            .then(data => {
+              setProcessing(false);
+              console.log(data);
+              const text = `Payment Successful!, TransactionId: ${paymentIntent.id}`;
+              alert(text);
+              navigate("/dash/mySelected");
+            })
+            .catch(err => console.log(err));
+        }
+      });
+    }
   };
 
   return (
@@ -102,6 +133,7 @@ const CheckoutForm = ({ itemPrice }) => {
       {carderror && (
         <p className="text-red-600 text-lg font-semibold">{carderror}</p>
       )}
+      <ToastContainer></ToastContainer>
     </>
   );
 };
