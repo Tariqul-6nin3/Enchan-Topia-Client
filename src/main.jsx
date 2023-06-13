@@ -18,6 +18,8 @@ import ApprovedClass from "./components/approvedClass/ApprovedClass";
 import Myclass from "./components/Dashboard/InstructorDashboard/Myclass";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Myselected from "./components/Dashboard/StudentDashboard/Myselected";
+import EnrollClass from "./components/Dashboard/StudentDashboard/EnrollClass";
+import Payment from "./components/Dashboard/StudentDashboard/Payment";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: "/dash/myselected",
         element: <Myselected />,
+      },
+      {
+        path: "/dash/enroll",
+        element: <EnrollClass />,
+      },
+      {
+        path: "/dash/payment",
+        element: <Payment />,
       },
     ],
   },

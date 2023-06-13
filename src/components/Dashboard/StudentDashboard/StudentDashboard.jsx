@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { myContext } from "../../../providers/Context";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { AwesomeButton } from "react-awesome-button";
+import { AiFillHome } from "react-icons/ai";
+import { BiSelectMultiple, BiSolidObjectsHorizontalLeft } from "react-icons/bi";
+import { DiGhostSmall } from "react-icons/di";
 
 const StudentDashboard = () => {
   const { user } = useContext(myContext);
@@ -37,18 +40,19 @@ const StudentDashboard = () => {
           </div>
           <div className=" ">
             <ul className="py-4">
-              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2">
+              <li className="px-4 flex gap-2 items-center bg-cyan-600 w-9/12 text-lg font-semibold py-2">
+                <AiFillHome className=" text-xl"></AiFillHome>
                 <Link to="/">Home</Link>
               </li>
-              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+              <li className="px-4 flex gap-2 items-center bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+                <BiSelectMultiple></BiSelectMultiple>
                 <Link to="/dash/myselected"> My selected class</Link>
               </li>
-              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
-                <a href="#" className="block">
-                  My enroll class
-                </a>
+              <li className="px-4 flex gap-2 items-center bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+                <DiGhostSmall></DiGhostSmall>
+                <Link to="/dash/enroll">My enroll class</Link>
               </li>
-              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+              <li className="px-4 flex gap-2 items-center bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
                 <Link to="/dash/payment">Payment History</Link>
               </li>
 
