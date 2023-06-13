@@ -83,7 +83,7 @@ const ClassData = ({ classes, index }) => {
   };
 
   return (
-    <tr className="hover">
+    <tr className="hover overflow-scroll">
       <td>
         <div className="avatar">
           <div className="mask mask-squircle w-12 h-12">

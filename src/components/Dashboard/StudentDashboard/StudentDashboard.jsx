@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { myContext } from "../../../providers/Context";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AwesomeButton } from "react-awesome-button";
 
 const StudentDashboard = () => {
+  const { user } = useContext(myContext);
+  console.log(user);
   const { logOutUser } = useContext(myContext);
   const handlelogOut = () => {
     logOutUser()
@@ -14,29 +17,65 @@ const StudentDashboard = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="bg-gray-900 text-white w-64 flex-none">
+      <div className=" bg-[#1e90ff]  text-white w-72 flex-none">
         {/* Sidebar content */}
-        <div className="p-4">
-          <h1 className="text-2xl font-bold">Dashboard</h1>
+
+        <div className=" ml-5 mt-6">
+          <div className="p-4">
+            <h1 className="text-2xl font-bold">Dashboard</h1>
+          </div>
+          <div className="ml-4">
+            <div className="avatar">
+              <div className="w-32  rounded-xl">
+                <img
+                  src="https://i.postimg.cc/3NN5Wh9W/cesar-rincon-XHVp-Wcr5gr-Q-unsplash.jpg"
+                  alt=""
+                />
+                <h1>{user ? user.displayName : "Default User"}</h1>
+              </div>
+            </div>
+          </div>
+          <div className=" ">
+            <ul className="py-4">
+              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+                <Link to="/dash/myselected"> My selected class</Link>
+              </li>
+              <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2">
+                <a href="#" className="block">
+                  My enroll class
+                </a>
+              </li>
+
+              {/* Add more sidebar items */}
+            </ul>
+          </div>
         </div>
-        <div className=" ">
-          <ul className="py-4">
-            <li className="px-4 py-2 hover:bg-gray-800">
-              <Link to="/">Home</Link>
+        <hr className="text-white font-bold w-9/12 mx-4 border-2" />
+        <div className="ml-5 py-5 space-y-6">
+          <Link to="/instructor">
+            {" "}
+            <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2 list-none">
+              Instructor
             </li>
-            <li className="px-4 py-2 hover:bg-gray-800">
-              <Link to="/dash/myselected"> My selected class</Link>
+          </Link>
+          <Link to="/approvedclass">
+            {" "}
+            <li className="px-4 bg-cyan-600 w-9/12 text-lg font-semibold py-2 mt-2 mb-3 list-none">
+              Classes
             </li>
-            <li className="px-4 py-2 hover:bg-gray-800">
-              <a href="#" className="block">
-                My enroll class
-              </a>
-            </li>
-            <button className="btn mt-40" onClick={handlelogOut}>
+          </Link>
+          <Link to="/login">
+            <AwesomeButton
+              size="large"
+              type="secondary"
+              className="text-black mt-3 font-semibold"
+              onClick={handlelogOut}>
               LogOut
-            </button>
-            {/* Add more sidebar items */}
-          </ul>
+            </AwesomeButton>
+          </Link>
         </div>
       </div>
 

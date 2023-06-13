@@ -12,6 +12,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { updateStatus } from "../../api/saveUser";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate, useNavigation } from "react-router-dom";
+import { AwesomeButton } from "react-awesome-button";
 // import { useDeleteClass } from "../../hooks/useDeleteClass";
 
 const CheckoutForm = ({ selectedClass, closeModal, modifiedData }) => {
@@ -100,7 +101,7 @@ const CheckoutForm = ({ selectedClass, closeModal, modifiedData }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="mt-5 px-6 py-4" onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
@@ -117,7 +118,10 @@ const CheckoutForm = ({ selectedClass, closeModal, modifiedData }) => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe}>
+        <button
+          className=" py-2  bg-white hover:bg-slate-300 text-lg font-semibold text-black px-12 rounded-xl "
+          type="submit"
+          disabled={!stripe}>
           Pay
         </button>
       </form>

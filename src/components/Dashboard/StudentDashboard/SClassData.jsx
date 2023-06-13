@@ -6,6 +6,7 @@ import CheckoutForm from "../../checkout/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { myContext } from "../../../providers/Context";
+import { ImCross } from "react-icons/im";
 
 const SClassData = ({ selectedClass }) => {
   const { user } = useContext(myContext);
@@ -77,7 +78,7 @@ const SClassData = ({ selectedClass }) => {
   };
 
   return (
-    <div>
+    <div className="z-0 relative">
       <div className="card w-96 bg-base-100 shadow-xl image-full">
         <figure>
           <img src={classImage} alt="Shoes" />
@@ -99,9 +100,12 @@ const SClassData = ({ selectedClass }) => {
       </div>
 
       <Modal
-        className="w-1/3 bg-slate-400 items-center"
+        className="w-1/2 relative  bg-[#7d5fff]  mx-auto py-6 rounded-2xl px-5 mt-10  z-50  "
         isOpen={isModalOpen}
         onRequestClose={closeModal}>
+        <h2 className="text-4xl text-white font-bold   text-center">
+          Proceed to pay
+        </h2>
         <Elements stripe={stripePromise}>
           <CheckoutForm
             closeModal={closeModal}
@@ -109,8 +113,10 @@ const SClassData = ({ selectedClass }) => {
             selectedClass={selectedClass}
           />
         </Elements>
-        <button className="btn btn-accent" onClick={closeModal}>
-          Close
+        <button
+          className="btn top-2 right-2 absolute bg-red-600 btn-sm ml-auto"
+          onClick={closeModal}>
+          <ImCross></ImCross>
         </button>
       </Modal>
     </div>
