@@ -6,7 +6,7 @@ import Lottie from "react-lottie";
 import { Helmet } from "react-helmet";
 import { myContext } from "../../providers/Context";
 import { useForm } from "react-hook-form";
-import { saveUser } from "../../api/SaveUser";
+import { saveUser } from "../../api/saveUser";
 
 const SignUp = () => {
   const defaultOptions = {

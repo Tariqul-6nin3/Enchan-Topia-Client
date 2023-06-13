@@ -8,7 +8,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import app from "../../firebase.config";
-import { getRole } from "../api/SaveUser";
+import { getRole } from "../api/saveUser";
 
 const auth = getAuth(app);
 

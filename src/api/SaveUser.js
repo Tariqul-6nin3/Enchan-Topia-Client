@@ -1,4 +1,3 @@
-// save a user to database
 export const saveUser = (user, photoUrl, displayName) => {
   console.log("this is user", user);
   const currentUser = {
@@ -56,3 +55,12 @@ export const updateStatus = async (id, status) => {
   const data = await response.json();
   return data;
 };
+
+// export const deleteClass = async classId => {
+//   try {
+//     const response = await axios.delete(`/classes/${classId}`);
+//     return response.data;
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// };

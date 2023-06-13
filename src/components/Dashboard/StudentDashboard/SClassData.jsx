@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Modal from "react-modal";
 import CheckoutForm from "../../checkout/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { myContext } from "../../../providers/Context";
 
 const SClassData = ({ selectedClass }) => {
+  const { user } = useContext(myContext);
+  console.log(user);
+
   const stripePromise = loadStripe(
     "pk_test_51NI2P3HUp9RdPjle2pAmXFxrK6omFFahemtEZHWVRgsp6U1afiF7WkTvKKXiKsgpzQINfHOTaWpWtQXSvaQ4y0SA00Qg7D12Uj"
   );
@@ -23,6 +27,21 @@ const SClassData = ({ selectedClass }) => {
     price,
     status,
   } = selectedClass;
+
+  const modifiedData = {
+    previousId: _id,
+    email: user?.email,
+    name: user?.displayName,
+    availableSeats,
+    classImage,
+    className,
+    instructorEmail,
+    instructorImage,
+    numOfStudents,
+    price,
+    status,
+  };
+  console.log(modifiedData);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -84,7 +103,11 @@ const SClassData = ({ selectedClass }) => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}>
         <Elements stripe={stripePromise}>
-          <CheckoutForm selectedClass={selectedClass} />
+          <CheckoutForm
+            closeModal={closeModal}
+            modifiedData={modifiedData}
+            selectedClass={selectedClass}
+          />
         </Elements>
         <button className="btn btn-accent" onClick={closeModal}>
           Close

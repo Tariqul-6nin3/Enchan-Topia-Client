@@ -9,19 +9,19 @@ import "../checkout/Checkout.css";
 import "react-toastify/dist/ReactToastify.css";
 import { myContext } from "../../providers/Context";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { updateStatus } from "../../api/SaveUser";
+import { updateStatus } from "../../api/saveUser";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigation } from "react-router-dom";
-// import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useNavigate, useNavigation } from "react-router-dom";
+// import { useDeleteClass } from "../../hooks/useDeleteClass";
 
-const CheckoutForm = ({ selectedClass }) => {
-  const navigate = useNavigation();
+const CheckoutForm = ({ selectedClass, closeModal, modifiedData }) => {
+  const navigate = useNavigate();
   const { user } = useContext(myContext);
   const stripe = useStripe();
   const elements = useElements();
   const [carderror, setCarderror] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-
+  // const { deleteClass } = useDeleteClass();
   const [AxiosSecure] = useAxiosSecure();
   useEffect(() => {
     if (selectedClass.price > 0) {
@@ -34,30 +34,18 @@ const CheckoutForm = ({ selectedClass }) => {
   }, [selectedClass, AxiosSecure]);
 
   const handleSubmit = async event => {
-    // Block native form submission.
     event.preventDefault();
-
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
-      return;
+      d.return;
     }
-
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
     const card = elements.getElement(CardElement);
-
     if (card == null) {
       return;
     }
-
-    // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
-
     if (error) {
       console.log("[error]", error);
       setCarderror(error.message);
@@ -75,18 +63,15 @@ const CheckoutForm = ({ selectedClass }) => {
           },
         },
       });
-
     if (confirmError) {
       console.log(confirmError);
       setCarderror(confirmError.message);
     }
-
     console.log("payment intent", paymentIntent);
-
     if (paymentIntent.status === "succeeded") {
       // save payment information to the server
       const paymentInfo = {
-        ...selectedClass,
+        ...modifiedData,
         transactionId: paymentIntent.id,
         date: new Date(),
       };
@@ -95,11 +80,17 @@ const CheckoutForm = ({ selectedClass }) => {
         if (res.data.insertedId) {
           updateStatus(selectedClass._id, true)
             .then(data => {
-              setProcessing(false);
               console.log(data);
               const text = `Payment Successful!, TransactionId: ${paymentIntent.id}`;
-              alert(text);
-              navigate("/dash/mySelected");
+              toast(text);
+              closeModal();
+              // Remove the class from the UI using the useDeleteClass hook
+
+              AxiosSecure.delete(`/selected/${selectedClass._id}`)
+                .then(() => {
+                  navigate("/dash/mySelected");
+                })
+                .catch(err => console.log(err));
             })
             .catch(err => console.log(err));
         }
