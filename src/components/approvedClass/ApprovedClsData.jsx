@@ -7,10 +7,20 @@ import { AwesomeButton } from "react-awesome-button";
 import "../approvedClass/ApprovedClass.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 const ApprovedClsData = ({ classes }) => {
+  const navigate = useNavigate();
   const { _id, classImage, className, instructorName, availableSeats, price } =
     classes;
+  const modifiedClass = {
+    priviousId: _id,
+    classImage,
+    className,
+    instructorName,
+    availableSeats,
+    price,
+  };
   const { role, user } = useContext(myContext);
   console.log(role);
 
@@ -18,9 +28,25 @@ const ApprovedClsData = ({ classes }) => {
 
   const isButtonDisabled = availableSeats === 0 || isAdminOrInstructor;
 
-  const handleBookNow = async () => {
+  const handleBookNow = async user => {
+    if (!user) {
+      Swal.fire({
+        title: "You are not logged In",
+        text: "To select magic class log in first",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "LogIn?",
+      }).then(result => {
+        if (result.isConfirmed) {
+          Swal.fire("Now you are on logIn page");
+          return navigate("/login");
+        }
+      });
+    }
     const payload = {
-      ...classes,
+      ...modifiedClass,
       email: user.email,
     };
 
@@ -51,7 +77,7 @@ const ApprovedClsData = ({ classes }) => {
   };
 
   return (
-    <div className="card  class-item w-96 bg-base-100 shadow-xl">
+    <div className="card border hover:border hover:border-sky-600  class-item w-96 bg-base-100 shadow-xl">
       <div className="w-full h-64 object-cover rounded-xl">
         <img
           className="w-full rounded-xl h-full object-cover"
@@ -83,8 +109,11 @@ const ApprovedClsData = ({ classes }) => {
               Price: ${price}
             </p>
           </div>
-          <div className="mt-auto">
-            <AwesomeButton type="primary" size="small">
+          <div onClick={() => handleBookNow(user)} className="mt-auto">
+            <AwesomeButton
+              disabled={isButtonDisabled}
+              type="primary"
+              size="small">
               Select
             </AwesomeButton>
           </div>

@@ -4,7 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { Vortex } from "react-loader-spinner";
 import { myContext } from "../providers/Context";
 
-const PrivateRoutes = ({ children }) => {
+const IsAdmin = ({ children }) => {
   const { user, loading } = useContext(myContext);
   const location = useLocation();
   if (loading) {
@@ -22,10 +22,10 @@ const PrivateRoutes = ({ children }) => {
       </div>
     );
   }
-  if (user) {
+  if (user.role === "admin") {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
-export default PrivateRoutes;
+export default IsAdmin;

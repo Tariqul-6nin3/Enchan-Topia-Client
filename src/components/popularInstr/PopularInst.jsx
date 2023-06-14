@@ -17,10 +17,9 @@ const PopularInst = () => {
   return (
     <Container>
       <div>
-        <h3 className="text-3xl text-center text-slate-900 mx-auto font-bold font-mono">
-          Popular Instructor
-        </h3>
-
+        <h1 className="text-4xl py-5 font-bold  text-[#1e90ff] text-center">
+          -----Popular Instructors-----
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {popularInst?.map(instr => (
             <SingleInstr key={instr._id} instr={instr}></SingleInstr>

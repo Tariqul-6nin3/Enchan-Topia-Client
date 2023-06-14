@@ -31,13 +31,17 @@ const Header = () => {
           alt=""
         />
         <Link to="/">
-          <h3 className="text-3xl font-serif font-bold ">EnchanTopia</h3>
+          <h3 className="text-3xl font-serif font-bold">EnchanTopia</h3>
+          <span className="text-xs font-thin font-mono ">
+            Magic learnig academy
+          </span>
         </Link>
       </div>
 
       <div className="flex-none">
         <div className="dropdown dropdown-end hidden lg:block">
           <ul tabIndex={0} className="flex gap-5 items-center font-bold ">
+            <input type="checkbox" className="toggle toggle-accent" checked />
             <Link>
               {" "}
               <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
@@ -57,18 +61,19 @@ const Header = () => {
               </li>
             </Link>
 
-            <Link to="/dash">
-              {" "}
-              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
-                Dashboard
-              </li>
-            </Link>
-
-            <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+            <li className=" border-cyan-800 pb-2 transition-all duration-200">
               {user ? (
-                <button className="btn btn-sm" onClick={handlelogOut}>
-                  LogOut
-                </button>
+                <div className="flex justify-center items-center gap-2 mt-2">
+                  <Link to="/dash">
+                    {" "}
+                    <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                      Dashboard
+                    </li>
+                  </Link>
+                  <button className="btn btn-sm" onClick={handlelogOut}>
+                    LogOut
+                  </button>
+                </div>
               ) : (
                 <Link to="/login">
                   <button className="btn btn-sm">Login</button>
@@ -102,6 +107,7 @@ const Header = () => {
             <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
               <h2 className="text-xl font-semibold">{user?.displayName}</h2>
             </li>
+            <input type="checkbox" className="toggle toggle-accent" checked />
             <Link>
               <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
                 Home
@@ -118,18 +124,19 @@ const Header = () => {
               </li>
             </Link>
 
-            <Link to="/dashboard">
-              {" "}
-              <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
-                Dashboard
-              </li>
-            </Link>
-
-            <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+            <li className=" border-cyan-800 pb-2 transition-all duration-200">
               {user ? (
-                <button className="btn " onClick={handlelogOut}>
-                  LogOut
-                </button>
+                <>
+                  <Link to="/dashboard">
+                    {" "}
+                    <li className="hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200">
+                      Dashboard
+                    </li>
+                    <button className="btn " onClick={handlelogOut}>
+                      LogOut
+                    </button>
+                  </Link>
+                </>
               ) : (
                 <Link to="/login">
                   <button className="btn">Login</button>

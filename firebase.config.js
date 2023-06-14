@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBKOoGSRRr18ef5Uv4VqlQmJgAPwiTAey0",
-  authDomain: "enchantopia-client.firebaseapp.com",
-  projectId: "enchantopia-client",
-  storageBucket: "enchantopia-client.appspot.com",
-  messagingSenderId: "76823677207",
-  appId: "1:76823677207:web:556cad2973bd1d80e10f52",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

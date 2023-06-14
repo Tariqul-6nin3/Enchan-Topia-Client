@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { myContext } from "../../../providers/Context";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SClassData from "./SClassData";
+import Container from "../../container/Container";
 
 const Myselected = () => {
   const [selectedClass, setSelectedClass] = useState([]);
@@ -19,54 +20,38 @@ const Myselected = () => {
       return res.data;
     },
   });
-  //   if (loading) {
-  //     return <p>loadddinngggggg..................</p>;
-  //   }
-
   //   useEffect(() => {
   //     fetch(`http://localhost:5000/selected/${user.email}`)
   //       .then(res => res.json())
   //       .then(data => console.log(data));
   //   }, []);
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center text-slate-800">
-        All of my booked class
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-        {selectedClass?.map(Sclass => (
-          <SClassData
-            key={Sclass._id}
-            selectedClass={Sclass}
-            refetch={refetch}></SClassData>
-        ))}
+    <Container>
+      <div className="overflow-x-auto px-6">
+        <table className="table ">
+          {/* head */}
+          <thead>
+            <tr className="text-lg">
+              <th>Class Image</th>
+              <th>Class Name</th>
+              <th>Instructor Email</th>
+              <th>Price</th>
+              <th>AvailableSeats</th>
+              <th>Delete</th>
+              <th>Pay</th>
+            </tr>
+          </thead>
+          <tbody className="space-y-3 mt-6">
+            {selectedClass?.map(Sclass => (
+              <SClassData
+                key={Sclass._id}
+                selectedClass={Sclass}
+                refetch={refetch}></SClassData>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </div>
-
-    // <Container>
-    //   <div className="overflow-x-auto px-6">
-    //     <table className="table ">
-    //       {/* head */}
-    //       <thead>
-    //         <tr className="">
-    //           <th>Image</th>
-    //           <th>Name</th>
-    //           <th>Email</th>
-    //           <th>Num of Student</th>
-    //           <th>Details</th>
-    //         </tr>
-    //       </thead>
-    //       <tbody className="space-y-3 mt-6">
-    //         {selectedClass?.map((, index) => (
-    //           <InstrData
-    //             key={instructors.email}
-    //             index={index}
-    //             instructors={instructors}></InstrData>
-    //         ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </Container>
+    </Container>
   );
 };
 

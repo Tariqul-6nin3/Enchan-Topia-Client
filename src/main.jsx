@@ -20,6 +20,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Myselected from "./components/Dashboard/StudentDashboard/Myselected";
 import EnrollClass from "./components/Dashboard/StudentDashboard/EnrollClass";
 import Payment from "./components/Dashboard/StudentDashboard/Payment";
+import PrivateRoutes from "./privateroutes/PrivateRoutes";
+import IsAdmin from "./privateroutes/IsAdmin";
+import IsInstructor from "./privateroutes/IsInstructor";
 
 const router = createBrowserRouter([
   {
@@ -55,19 +58,43 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dash/addclass",
-        element: <Addclass />,
+        element: (
+          <PrivateRoutes>
+            <IsInstructor>
+              <Addclass></Addclass>
+            </IsInstructor>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dash/alluser",
-        element: <AllUser />,
+        element: (
+          <PrivateRoutes>
+            <IsAdmin>
+              <AllUser></AllUser>
+            </IsAdmin>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dash/allclass",
-        element: <AllClass />,
+        element: (
+          <PrivateRoutes>
+            <IsAdmin>
+              <AllClass></AllClass>
+            </IsAdmin>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dash/myclass",
-        element: <Myclass />,
+        element: (
+          <PrivateRoutes>
+            <IsAdmin>
+              <Myclass></Myclass>
+            </IsAdmin>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dash/myselected",

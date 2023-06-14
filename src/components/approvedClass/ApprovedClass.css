@@ -1,6 +1,6 @@
 .class-item:hover {
   transition: transform 1s linear;
-  transform: rotate(3deg);
+  transform: scale(0.9);
 }
 .class-item img:hover {
   transition: transform 1s linear;

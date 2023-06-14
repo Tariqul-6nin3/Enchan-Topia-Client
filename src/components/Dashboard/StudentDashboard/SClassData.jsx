@@ -7,6 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { myContext } from "../../../providers/Context";
 import { ImCross } from "react-icons/im";
+import { RiSecurePaymentLine, RiDeleteBin5Fill } from "react-icons/ri";
 
 const SClassData = ({ selectedClass, refetch }) => {
   const { user } = useContext(myContext);
@@ -81,27 +82,42 @@ const SClassData = ({ selectedClass, refetch }) => {
   };
 
   return (
-    <div className="z-0 relative">
-      <div className="card w-96 bg-base-100 shadow-xl image-full">
-        <figure>
-          <img src={classImage} alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{className}</h2>
-          <p>{instructorName}</p>
-          <div className="card-actions justify-end">
-            <button
-              className="btn btn-accent"
-              onClick={() => handleDelete(instructorEmail)}>
-              Delete
-            </button>
-            <button className="btn btn-primary" onClick={handlePay}>
-              Pay
-            </button>
+    <>
+      <tr className="hover z-0 relative space-y-6">
+        <td>
+          <div className="avatar">
+            <div className="mask mask-squircle w-12 h-12">
+              <img src={classImage} alt="Avatar Tailwind CSS Component" />
+            </div>
           </div>
-        </div>
-      </div>
-
+        </td>
+        <td>
+          <div>
+            <div className="font-bold">{className}</div>
+          </div>
+        </td>
+        <td>
+          <h3>{instructorEmail}</h3>
+        </td>
+        <td>
+          <h3>{price}</h3>
+        </td>
+        <td>
+          <h3>{availableSeats}</h3>
+        </td>
+        <td>
+          <button
+            className="hover:scale-x-110"
+            onClick={() => handleDelete(instructorEmail)}>
+            <RiDeleteBin5Fill className="text-2xl font-bold text-black"></RiDeleteBin5Fill>
+          </button>
+        </td>
+        <td>
+          <button className="hover:scale-x-110" onClick={handlePay}>
+            <RiSecurePaymentLine className="text-2xl font-bold text-black"></RiSecurePaymentLine>
+          </button>
+        </td>
+      </tr>
       <Modal
         className="w-1/2 relative  bg-[#7d5fff]  mx-auto py-6 rounded-2xl px-5 mt-10  z-50  "
         isOpen={isModalOpen}
@@ -122,7 +138,7 @@ const SClassData = ({ selectedClass, refetch }) => {
           <ImCross></ImCross>
         </button>
       </Modal>
-    </div>
+    </>
   );
 };
 

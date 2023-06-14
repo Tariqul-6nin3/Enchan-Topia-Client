@@ -18,7 +18,7 @@ export default function App() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper">
+        className="mySwiper h-[600px]">
         <SwiperSlide>
           <img src="https://i.postimg.cc/9Q3Bv5nq/1775602.jpg" alt="" />
           <div className="overlay px-6 py-3 space-y-4">
