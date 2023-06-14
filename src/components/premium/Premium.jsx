@@ -23,7 +23,7 @@ const Premium = () => {
             <p className="text-justify px-4 mt-2">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
               accusantium eius nesciunt. Soluta voluptatem iste voluptatibus
-              quae eius incidunt expedita maiores animi in? Nobis, nihil.
+              quae eius incidunt expedita maiores animi in?
             </p>
           </div>
         </div>
