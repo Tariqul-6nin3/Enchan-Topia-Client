@@ -7,9 +7,14 @@ import { Helmet } from "react-helmet";
 import { myContext } from "../../providers/Context";
 import { useForm } from "react-hook-form";
 import { saveUser } from "../../api/saveUser";
-import { updateProfile } from "firebase/auth";
+import { updateProfile, GoogleAuthProvider, getAuth } from "firebase/auth";
+import { BsFillEyeFill } from "react-icons/bs";
+import { FaGoogle } from "react-icons/fa";
+import app from "../../../firebase.config";
 
 const SignUp = () => {
+  const googleProvider = new GoogleAuthProvider();
+  const auth = getAuth(app);
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -20,6 +25,7 @@ const SignUp = () => {
   };
 
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState("");
 
   const { createUser } = useContext(myContext);
@@ -64,6 +70,21 @@ const SignUp = () => {
         console.log("Name and photo updated");
       })
       .catch(error => setError(error.message));
+  };
+
+  const handleGoogleLogIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        const googleUser = result.user;
+        // save user to userCollection
+        saveUser(googleUser);
+        console.log(googleUser);
+        setUser(googleUser);
+      })
+      .catch(error => {
+        setError(error.message);
+        console.log(error);
+      });
   };
   return (
     <>
@@ -119,13 +140,18 @@ const SignUp = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label">
+                  <label className="label relative">
                     <span className="text-gray-700 font-bold mb-1">
                       Password
                     </span>
+                    <span
+                      onClick={() => setShowPass(!showPass)}
+                      className="absolute text-2xl top-12  right-8">
+                      <BsFillEyeFill></BsFillEyeFill>
+                    </span>
                   </label>
                   <input
-                    type="password"
+                    type={showPass ? "text" : "password"}
                     name="password"
                     {...register("password", {
                       required: true,
@@ -158,13 +184,18 @@ const SignUp = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label">
-                    <span className="text-gray-700 font-bold mb-1">
+                  <label className="label relative">
+                    <span className="text-gray-700  font-bold mb-1">
                       Confirm Password
+                    </span>
+                    <span
+                      onClick={() => setShowPass(!showPass)}
+                      className="absolute text-2xl top-12  right-8">
+                      <BsFillEyeFill></BsFillEyeFill>
                     </span>
                   </label>
                   <input
-                    type="password"
+                    type={showPass ? "text" : "password"}
                     name="confirm"
                     {...register("confirm", { required: true })}
                     placeholder="Confirm password"
@@ -201,6 +232,19 @@ const SignUp = () => {
                     }}
                     className="btn text-white ">
                     Sign Up
+                  </button>
+                  <hr />
+                </div>
+                <div className="flex md:flex-row flex-col justify-center">
+                  <button
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+                    }}
+                    onClick={handleGoogleLogIn}
+                    className="btn btn-outline md:mx-2 mt-4 text-white px-4">
+                    <FaGoogle className="mr-3 text-2xl" />
+                    Continue with Google
                   </button>
                 </div>
                 <p className="text-gray-700 text-xl mt-2 font-semibold">

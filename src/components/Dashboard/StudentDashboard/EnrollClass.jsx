@@ -5,7 +5,7 @@ import EnrollData from "./EnrollData";
 const EnrollClass = () => {
   const [enrollClass, setEnrollClass] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/enroll")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/enroll")
       .then(res => res.json())
       .then(data => {
         console.log(data);

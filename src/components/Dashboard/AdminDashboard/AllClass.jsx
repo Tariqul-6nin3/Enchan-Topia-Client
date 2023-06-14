@@ -5,7 +5,7 @@ const AllClass = () => {
   const [allclass, setAllclass] = useState([]);
   console.log(allclass);
   useEffect(() => {
-    fetch("http://localhost:5000/allclass")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/allclass")
       .then(res => res.json())
       .then(data => {
         setAllclass(data);

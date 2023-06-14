@@ -9,7 +9,7 @@ const InstructorData = ({ classItem }) => {
     available_seats,
     instructor,
   } = classItem;
-  console.log(classItem);
+  // console.log(classItem);
   return (
     <>
       <div className="card w-96 bg-base-100 shadow-xl">

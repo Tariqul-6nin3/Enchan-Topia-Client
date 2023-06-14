@@ -8,13 +8,16 @@ export const saveUser = (user, photoUrl, displayName) => {
     role: "student",
   };
 
-  return fetch(`http://localhost:5000/users/${user?.email}`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(currentUser),
-  })
+  return fetch(
+    `https://enchantopia-server-tariqul-6nin3.vercel.app/users/${user?.email}`,
+    {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(currentUser),
+    }
+  )
     .then(res => res.json())
     .then(data => {
       console.log(data, "saved to db");
@@ -23,7 +26,9 @@ export const saveUser = (user, photoUrl, displayName) => {
 };
 
 export const getRole = async email => {
-  const response = await fetch(`http://localhost:5000/users/${email}`);
+  const response = await fetch(
+    `https://enchantopia-server-tariqul-6nin3.vercel.app/users/${email}`
+  );
   const user = await response.json();
   return user?.role;
 };
@@ -45,13 +50,16 @@ export const getRole = async email => {
 
 // update room status
 export const updateStatus = async (id, status) => {
-  const response = await fetch(`http://localhost:5000/class/status/${id}`, {
-    method: "PATCH",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ status }),
-  });
+  const response = await fetch(
+    `https://enchantopia-server-tariqul-6nin3.vercel.app/class/status/${id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status }),
+    }
+  );
   const data = await response.json();
   return data;
 };

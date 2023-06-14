@@ -10,7 +10,9 @@ const DashboardContainer = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/users/${user.email}`)
+      fetch(
+        `https://enchantopia-server-tariqul-6nin3.vercel.app/users/${user.email}`
+      )
         .then(res => res.json())
         .then(data => {
           setUserData(data);

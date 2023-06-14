@@ -6,7 +6,7 @@ const AllUser = () => {
   console.log(allUser);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alluser")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/alluser")
       .then(res => res.json())
       .then(data => {
         setAllUser(data);

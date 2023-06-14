@@ -6,7 +6,7 @@ const ApprovedClass = () => {
   const [approvedClass, setApprovedClass] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/approvedclass")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/approvedclass")
       .then(res => res.json())
       .then(data => {
         setApprovedClass(data);

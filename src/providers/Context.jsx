@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import app from "../../firebase.config";
 import { getRole } from "../api/saveUser";
+import axios from "axios";
 
 const auth = getAuth(app);
 
@@ -40,6 +41,18 @@ const Context = ({ children }) => {
   useEffect(() => {
     const unsuscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
+      if (currentUser) {
+        axios
+          .post("https://enchantopia-server-tariqul-6nin3.vercel.app/jwt", {
+            email: currentUser.email,
+          })
+          .then(data => {
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
       setLoading(false);
     });
     return () => {

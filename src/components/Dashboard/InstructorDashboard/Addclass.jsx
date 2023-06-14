@@ -39,7 +39,7 @@ const Addclass = () => {
     };
     console.log(newClass);
 
-    fetch("http://localhost:5000/newclass", {
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/newclass", {
       method: "POST",
       headers: {
         "content-type": "application/json",

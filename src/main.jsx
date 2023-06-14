@@ -23,6 +23,7 @@ import Payment from "./components/Dashboard/StudentDashboard/Payment";
 import PrivateRoutes from "./privateroutes/PrivateRoutes";
 import IsAdmin from "./privateroutes/IsAdmin";
 import IsInstructor from "./privateroutes/IsInstructor";
+import DashboardHome from "./components/DashboardContainer/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -55,16 +56,19 @@ const router = createBrowserRouter([
   {
     path: "dash",
     element: <DashboardContainer />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/dash/addclass",
         element: (
           <PrivateRoutes>
-            <IsInstructor>
-              <Addclass></Addclass>
-            </IsInstructor>
+            <Addclass></Addclass>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/dash/dashhome",
+        element: <DashboardHome></DashboardHome>,
       },
       {
         path: "/dash/alluser",
@@ -90,9 +94,9 @@ const router = createBrowserRouter([
         path: "/dash/myclass",
         element: (
           <PrivateRoutes>
-            <IsAdmin>
+            <IsInstructor>
               <Myclass></Myclass>
-            </IsAdmin>
+            </IsInstructor>
           </PrivateRoutes>
         ),
       },

@@ -7,7 +7,7 @@ import "react-awesome-button/dist/styles.css";
 import "../banner/Banner.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-export default function App() {
+const Banner = () => {
   return (
     <>
       <Swiper
@@ -20,7 +20,11 @@ export default function App() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper h-[600px]">
         <SwiperSlide>
-          <img src="https://i.postimg.cc/9Q3Bv5nq/1775602.jpg" alt="" />
+          <img
+            style={{ width: "100%" }}
+            src="https://i.postimg.cc/9Q3Bv5nq/1775602.jpg"
+            alt=""
+          />
           <div className="overlay px-6 py-3 space-y-4">
             <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-semibold">
@@ -35,6 +39,7 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img
+            style={{ width: "100%" }}
             src="https://i.postimg.cc/x10RPrpG/almos-bechtold-AJ-Mou1-FUS8-unsplash.jpg"
             alt=""
           />
@@ -52,6 +57,7 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img
+            style={{ width: "100%" }}
             src="https://i.postimg.cc/tJBLDsrX/almos-bechtold-AJ-Mou1-FUS8-unsplash.jpg"
             alt=""
           />
@@ -70,6 +76,7 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img
+            style={{ width: "100%" }}
             src="https://i.postimg.cc/8CL99KyX/joanna-kosinska-Mn-KWt1-W1-GDg-unsplash.jpg"
             alt=""
           />
@@ -87,6 +94,7 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img
+            style={{ width: "100%" }}
             src="https://i.postimg.cc/6qh9K6YS/the-magician-dan-white.jpg"
             alt=""
           />
@@ -103,7 +111,11 @@ export default function App() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.postimg.cc/WpqgvBm4/1775602.jpg" alt="" />
+          <img
+            style={{ width: "100%" }}
+            src="https://i.postimg.cc/WpqgvBm4/1775602.jpg"
+            alt=""
+          />
           <div className="overlay px-6 py-3 space-y-4">
             <h2 className="text-6xl font-semibold ">Magic Learning Platform</h2>
             <p className="text-2xl px-4 font-large">
@@ -119,4 +131,6 @@ export default function App() {
       </Swiper>
     </>
   );
-}
+};
+
+export default Banner;

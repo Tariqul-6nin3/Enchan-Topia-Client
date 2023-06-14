@@ -21,7 +21,7 @@ const InstructorDashboard = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className=" bg-[#1e90ff] pb-36 fixed text-white w-72 flex-none">
+      <div className=" bg-[#1e90ff] pb-48 fixed text-white w-72 flex-none">
         {/* Sidebar content */}
 
         <div className=" ml-5 mt-6">

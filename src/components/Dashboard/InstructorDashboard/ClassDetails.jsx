@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaSadCry } from "react-icons/fa";
+import { ImHappy } from "react-icons/im";
 
 const ClassDetails = ({ mycls }) => {
   const [showModal, setShowModal] = useState(false);
@@ -68,6 +70,7 @@ const ClassDetails = ({ mycls }) => {
 
         <td className="flex flex-col gap-2">
           <button className="btn btn-xs hover:bg-cyan-600 btn-info">
+            {status === "denied" ? <FaSadCry></FaSadCry> : <ImHappy></ImHappy>}
             {status}
           </button>
           <button className="btn btn-xs hover:bg-orange-700 btn-warning">

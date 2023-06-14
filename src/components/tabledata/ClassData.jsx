@@ -19,13 +19,16 @@ const ClassData = ({ classes, index }) => {
   const [feedbackText, setFeedbackText] = useState("");
 
   const handleStatusUpdate = (userId, updateStatus) => {
-    fetch(`http://localhost:5000/classes/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ status: updateStatus }),
-    })
+    fetch(
+      `https://enchantopia-server-tariqul-6nin3.vercel.app/classes/${userId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status: updateStatus }),
+      }
+    )
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -33,7 +36,7 @@ const ClassData = ({ classes, index }) => {
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Class added successfully",
+            text: `Class ${updateStatus} successfully`,
             icon: "success",
             confirmButtonText: "OK",
           });
@@ -58,16 +61,20 @@ const ClassData = ({ classes, index }) => {
 
     try {
       // Make API request to update feedback option
-      const response = await fetch(`http://localhost:5000/classes/${_id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ feedback: feedbackText }),
-      });
+      const response = await fetch(
+        `https://enchantopia-server-tariqul-6nin3.vercel.app/classes/${_id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ feedback: feedbackText }),
+        }
+      );
 
       // Handle successful response
       if (response.ok) {
+        closeModal();
         Swal.fire({
           title: "Success!",
           text: "Feedback submitted successfully",
@@ -112,13 +119,17 @@ const ClassData = ({ classes, index }) => {
       <td className="flex flex-col gap-2">
         <button
           onClick={() => handleStatusUpdate(_id, "approved")}
-          disabled={isStatusUpdate || status === "approved"}
+          disabled={
+            isStatusUpdate || status === "approved" || status === "denied"
+          }
           className="btn btn-xs hover:bg-cyan-600 btn-info">
           Approved
         </button>
         <button
           onClick={() => handleStatusUpdate(_id, "denied")}
-          disabled={isStatusUpdate || status === "denied"}
+          disabled={
+            isStatusUpdate || status === "denied" || status === "approved"
+          }
           className="btn btn-xs hover:bg-orange-700 btn-warning">
           Deny
         </button>

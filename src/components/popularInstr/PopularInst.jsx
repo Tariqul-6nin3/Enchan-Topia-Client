@@ -4,9 +4,10 @@ import Container from "../container/Container";
 
 const PopularInst = () => {
   const [popularInst, setPopularInst] = useState([]);
+  console.log(popularInst);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popularClass")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/popularClass")
       .then(res => res.json())
       .then(data => {
         setPopularInst(data);
@@ -20,7 +21,7 @@ const PopularInst = () => {
         <h1 className="text-4xl py-5 font-bold  text-[#1e90ff] text-center">
           -----Popular Instructors-----
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3">
           {popularInst?.map(instr => (
             <SingleInstr key={instr._id} instr={instr}></SingleInstr>
           ))}

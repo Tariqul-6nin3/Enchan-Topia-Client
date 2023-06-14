@@ -5,7 +5,7 @@ import { Vortex } from "react-loader-spinner";
 import { myContext } from "../providers/Context";
 
 const IsInstructor = ({ children }) => {
-  const { user, loading } = useContext(myContext);
+  const { user, loading, role } = useContext(myContext);
   const location = useLocation();
   if (loading) {
     return (
@@ -22,7 +22,7 @@ const IsInstructor = ({ children }) => {
       </div>
     );
   }
-  if (user.role === "instructor") {
+  if (role === "instructor") {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;

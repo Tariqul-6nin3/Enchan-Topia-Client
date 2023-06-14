@@ -7,8 +7,8 @@ const Premium = () => {
       <h1 className="text-4xl py-5 font-bold  text-[#1e90ff] text-center">
         ----Some of Our Premium Classes----
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-4 my-7 gap-4">
-        <div className=" border-[#1e90ff] border-4 shadow-xl  shadow-sky-500 hover:shadow-orange-600 hover:border-4 hover:border-amber-600 rounded-2xl">
+      <div className="grid grid-cols-1 lg:grid-cols-4 my-7 gap-4">
+        <div className=" border-[#1e90ff] border-4 shadow-xl  shadow-sky-500 hover:shadow-slate-900 hover:border-4 hover:border-slate-900 rounded-2xl">
           <div className="w-32 h-32  mx-auto">
             <img
               className="w-full h-full"
@@ -28,7 +28,7 @@ const Premium = () => {
           </div>
         </div>
 
-        <div className=" border-[#1e90ff] border-4 shadow-xl shadow-sky-500 hover:shadow-orange-600 hover:border-4 hover:border-amber-600 rounded-2xl">
+        <div className=" border-[#1e90ff] border-4 shadow-xl shadow-sky-500 hover:shadow-slate-900 hover:border-4 hover:border-slate-900 rounded-2xl">
           <div className="w-32 h-32 mt-2  mx-auto">
             <img
               className="w-full h-full"
@@ -47,7 +47,7 @@ const Premium = () => {
             </p>
           </div>
         </div>
-        <div className=" border-[#1e90ff] border-4 shadow-xl shadow-sky-500 hover:shadow-orange-600 hover:border-4 hover:border-amber-600 rounded-2xl">
+        <div className=" border-[#1e90ff] border-4 shadow-xl shadow-sky-500 hover:shadow-slate-900 hover:border-4 hover:border-slate-900 rounded-2xl">
           <div className="w-32 h-32  mx-auto">
             <img
               className="w-full h-full"
@@ -66,7 +66,7 @@ const Premium = () => {
             </p>
           </div>
         </div>
-        <div className=" border-[#1e90ff] border-4 shadow-xl shadow-sky-500 hover:shadow-orange-600 hover:border-4 hover:border-amber-600 rounded-2xl">
+        <div className=" border-[#1e90ff] border-4 shadow-xl shadow-sky-500 hover:shadow-slate-900 hover:border-4 hover:border-slate-900 rounded-2xl">
           <div className="w-32 h-32  mx-auto">
             <img
               className="w-full h-full"

@@ -9,7 +9,9 @@ const Myclass = () => {
   const { user, loading } = useContext(myContext);
   console.log(user);
   useEffect(() => {
-    fetch(`http://localhost:5000/myclass?email=${user.email}`)
+    fetch(
+      `https://enchantopia-server-tariqul-6nin3.vercel.app/myclass?email=${user.email}`
+    )
       .then(response => {
         console.log(response); // Inspect the response object
         return response.json(); // or response.text() to see the response content

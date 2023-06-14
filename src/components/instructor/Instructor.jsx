@@ -7,7 +7,7 @@ const Instructor = () => {
   console.log(allinstructor);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/instructors")
       .then(res => res.json())
       .then(data => {
         setAllinstructor(data);

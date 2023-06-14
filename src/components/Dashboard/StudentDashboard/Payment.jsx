@@ -5,7 +5,7 @@ import PaymentData from "./PaymentData";
 const Payment = () => {
   const [paymentData, setPaymentData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/payment")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/payment")
       .then(res => res.json())
       .then(data => {
         console.log(data);

@@ -21,7 +21,7 @@ const Myselected = () => {
     },
   });
   //   useEffect(() => {
-  //     fetch(`http://localhost:5000/selected/${user.email}`)
+  //     fetch(`https://enchantopia-server-tariqul-6nin3.vercel.app/selected/${user.email}`)
   //       .then(res => res.json())
   //       .then(data => console.log(data));
   //   }, []);

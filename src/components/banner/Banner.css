@@ -6,7 +6,7 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-
+  height: 600px;
   /* Center slide text vertically */
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@
   object-fit: cover;
 }
 .mySwiper {
-  height: 600px;
+  height: 800px;
 }
 
 .overlay {

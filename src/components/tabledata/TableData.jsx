@@ -9,13 +9,16 @@ const TableData = ({ users, index }) => {
   const [isRoleUpdated, setIsRoleUpdated] = useState(false);
 
   const handleRoleUpdate = (userId, newRole) => {
-    fetch(`http://localhost:5000/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ role: newRole }),
-    })
+    fetch(
+      `https://enchantopia-server-tariqul-6nin3.vercel.app/users/${userId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role: newRole }),
+      }
+    )
       .then(response => response.json())
       .then(data => {
         console.log(data);

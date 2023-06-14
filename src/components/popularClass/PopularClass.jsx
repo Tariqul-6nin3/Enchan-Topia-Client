@@ -10,11 +10,11 @@ const PopularClass = () => {
   const [popularClass, setPopularClass] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popularClass")
+    fetch("https://enchantopia-server-tariqul-6nin3.vercel.app/popularClass")
       .then(res => res.json())
       .then(data => {
         setPopularClass(data);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
 
@@ -27,7 +27,7 @@ const PopularClass = () => {
         <div className="hidden md:block">
           <Swiper
             effect={"coverflow"}
-            grabCursor={true}
+            grabCursor={false}
             centeredSlides={true}
             slidesPerView={3}
             autoplay={{
@@ -57,7 +57,7 @@ const PopularClass = () => {
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={1}
+            slidesPerView={"auto"}
             autoplay={{
               delay: 1000,
               disableOnInteraction: false,

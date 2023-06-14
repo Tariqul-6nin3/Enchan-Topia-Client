@@ -51,13 +51,16 @@ const ApprovedClsData = ({ classes }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/bookedclass", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://enchantopia-server-tariqul-6nin3.vercel.app/bookedclass",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (response.ok) {
         Swal.fire({
